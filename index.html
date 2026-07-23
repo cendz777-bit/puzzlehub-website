@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PuzzleHub | Level Up Your Logic</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  body { 
+    font-family: 'Nunito', sans-serif; 
+    background-color: #F8F9FA; 
+    color: #111;
+  }
+  .kahoot-btn {
+    border: 3px solid #000;
+    border-bottom: 8px solid #000;
+    border-radius: 16px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    font-weight: 900;
+  }
+  .kahoot-btn:active {
+    border-bottom: 3px solid #000;
+    transform: translateY(5px);
+  }
+  .kahoot-card {
+    border: 3px solid #000;
+    border-bottom: 8px solid #000;
+    border-radius: 24px;
+    background-color: #fff;
+    transition: transform 0.2s;
+  }
+  .pattern-bg {
+    background-image: radial-gradient(#000000 2px, transparent 2px);
+    background-size: 30px 30px;
+    background-color: #1368CE;
+  }
+  /* Hides sections that are not currently active */
+  .hidden-page {
+    display: none;
+  }
+</style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+<!-- FTC Affiliate Disclosure -->
+<div class="bg-black text-white text-xs md:text-sm font-bold text-center py-2 px-4 tracking-wide z-50 relative">
+  Disclosure: As an Amazon Associate, we earn from qualifying purchases. This site contains affiliate links.
+</div>
+
+<!-- Interactive Navigation -->
+<nav class="max-w-7xl mx-auto w-full p-4 md:px-8 py-4 flex justify-between items-center bg-[#F8F9FA] sticky top-0 z-40 border-b-4 border-transparent">
+  <div onclick="navigate('page-home')" class="text-3xl md:text-5xl font-black tracking-tighter text-black cursor-pointer hover:scale-105 transition">Puzzle<span class="text-[#E21B3C]">Hub</span></div>
+  <div class="hidden lg:flex gap-6 font-extrabold text-xl text-gray-700">
+    <button onclick="navigate('page-games')" class="hover:text-[#26890C] transition">Arcade</button>
+    <button onclick="navigate('page-studio')" class="hover:text-[#FFA602] transition">Creator Studio</button>
+    <button onclick="navigate('page-blog')" class="hover:text-[#1368CE] transition">Blog</button>
+    <button onclick="navigate('page-about')" class="hover:text-[#E21B3C] transition">Pedagogy</button>
+  </div>
+  <div class="flex gap-4">
+    <button onclick="navigate('page-auth')" class="kahoot-btn bg-white text-black px-6 py-2 text-lg hidden md:block">Sign In</button>
+    <button onclick="navigate('page-auth')" class="kahoot-btn bg-[#1368CE] text-white px-6 py-2 text-lg hidden md:block">Sign Up</button>
+  </div>
+</nav>
+
+<!-- ========================================== -->
+<!-- PAGE 1: HOME DASHBOARD -->
+<!-- ========================================== -->
+<main id="page-home" class="page-section max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow space-y-16">
+  <header class="pattern-bg text-white p-8 md:p-20 text-center relative kahoot-card border-4">
+    <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight drop-shadow-lg leading-tight">Train Your Brain.<br>Build Your Brand.</h1>
+    <p class="text-xl md:text-2xl font-bold mb-10 opacity-95 max-w-3xl mx-auto">Play a massive arcade of structurally sound math and word games for free, or unlock the Creator Studio to generate commercial PDF workbooks.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-6">
+      <button onclick="navigate('page-games')" class="kahoot-btn bg-[#E21B3C] text-white text-2xl py-4 px-10 hover:bg-[#c41530]">Play Games Free</button>
+      <button onclick="navigate('page-studio')" class="kahoot-btn bg-[#FFA602] text-black text-2xl py-4 px-10 hover:bg-[#e69500]">Enter the Studio</button>
+    </div>
+  </header>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 2: GAMES ARCADE & GAMIFICATION -->
+<!-- ========================================== -->
+<main id="page-games" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow space-y-8">
+  
+  <!-- Gamification Dashboard (Top of Arcade) -->
+  <div class="bg-black text-white rounded-2xl p-6 border-4 border-black flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="flex items-center gap-4">
+      <div class="text-5xl">🔥</div>
+      <div>
+        <h3 class="text-2xl font-black">5 Day Streak!</h3>
+        <p class="font-bold text-gray-400">Play one game today to keep it alive.</p>
+      </div>
+    </div>
+    <div class="flex gap-4 w-full md:w-auto">
+      <button class="kahoot-btn bg-[#1368CE] text-white px-6 py-3 w-full md:w-auto">🏆 Leaderboard</button>
+      <button class="kahoot-btn bg-[#26890C] text-white px-6 py-3 w-full md:w-auto">📤 Share Stats</button>
+    </div>
+  </div>
+
+  <div class="text-center mb-8 mt-12">
+    <h1 class="text-5xl font-black mb-4 text-black">The Arcade</h1>
+    <p class="text-xl font-bold text-gray-600">Select a structurally sound puzzle below to begin.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="kahoot-card p-8 bg-[#f4fce3]">
+      <div class="bg-[#26890C] h-32 rounded-xl border-3 border-black flex items-center justify-center mb-6">
+        <span class="text-6xl text-white font-black">A B C</span>
+      </div>
+      <h3 class="text-3xl font-black mb-2">Lexi-Sum</h3>
+      <p class="font-bold text-gray-700 mb-8 text-lg">Sudoku meets Scrabble. Match the row targets using valid vocabulary.</p>
+      <button class="kahoot-btn bg-white w-full py-4 text-xl border-2">Launch Lexi-Sum</button>
+    </div>
+
+    <div class="kahoot-card p-8 bg-[#fff7e6]">
+      <div class="bg-[#FFA602] h-32 rounded-xl border-3 border-black flex items-center justify-center mb-6">
+        <span class="text-6xl text-black font-black">1 2 3</span>
+      </div>
+      <h3 class="text-3xl font-black mb-2">Classic Sudoku</h3>
+      <p class="font-bold text-gray-700 mb-8 text-lg">The 9x9 grid that started it all. Mathematically verified boards.</p>
+      <button class="kahoot-btn bg-white w-full py-4 text-xl border-2">Launch Sudoku</button>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 3: CREATOR STUDIO & ASSET GALLERY -->
+<!-- ========================================== -->
+<main id="page-studio" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-8 md:p-12 bg-[#1368CE] text-white text-center mb-12">
+    <span class="text-7xl mb-6 block drop-shadow-md">🖨️</span>
+    <h1 class="text-5xl font-black mb-6">The Creator Studio</h1>
+    <p class="text-2xl font-bold mb-8 opacity-95 max-w-4xl mx-auto leading-relaxed">
+      Generate thousands of unique puzzles instantly. Perfect for crafting commercial children's activity workbooks. Export to high-res PDF instantly for Etsy, KDP, and RaketPH.
+    </p>
+    <button class="kahoot-btn bg-[#FFA602] text-black text-2xl py-4 px-12 border-4">Upgrade to Pro - $9.99/mo</button>
+  </div>
+
+  <!-- B2B Asset Gallery -->
+  <h2 class="text-4xl font-black mb-8 text-black border-b-4 border-black inline-block pb-2">Pro Workbooks Built Here</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="kahoot-card p-4 bg-white">
+      <div class="bg-gray-200 h-64 rounded-xl border-4 border-black mb-4 flex items-center justify-center text-center p-4" style="background-image: repeating-linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb), repeating-linear-gradient(45deg, #e5e7eb 25%, #f3f4f6 25%, #f3f4f6 75%, #e5e7eb 75%, #e5e7eb); background-position: 0 0, 20px 20px; background-size: 40px 40px;">
+        <h3 class="font-black text-2xl bg-white p-2 border-2 border-black rotate-[-2deg]">The Great Zoo &<br>Dino Expedition</h3>
+      </div>
+      <h3 class="text-xl font-black mb-1">Children's Tracing & Words</h3>
+      <p class="font-bold text-gray-500 mb-4">50-Page PDF Export</p>
+      <button class="kahoot-btn w-full bg-[#F8F9FA] border-2 py-2">Preview PDF</button>
+    </div>
+
+    <div class="kahoot-card p-4 bg-white">
+      <div class="bg-gray-800 h-64 rounded-xl border-4 border-black mb-4 flex items-center justify-center text-center p-4">
+        <h3 class="font-black text-2xl bg-[#E21B3C] text-white p-2 border-2 border-black rotate-[2deg]">MASTER<br>SUDOKU<br>VOL 1</h3>
+      </div>
+      <h3 class="text-xl font-black mb-1">Adult Logic Series</h3>
+      <p class="font-bold text-gray-500 mb-4">100-Page PDF Export</p>
+      <button class="kahoot-btn w-full bg-[#F8F9FA] border-2 py-2">Preview PDF</button>
+    </div>
+
+    <div class="kahoot-card p-6 bg-[#F8F9FA] flex flex-col justify-center items-center text-center border-dashed border-4 border-gray-400">
+      <span class="text-5xl mb-4">✨</span>
+      <h3 class="text-2xl font-black mb-2">Build Your Own</h3>
+      <p class="font-bold text-gray-500 mb-6">Custom fonts, custom themes, unlimited generations.</p>
+      <button onclick="navigate('page-auth')" class="kahoot-btn w-full bg-black text-white border-2 py-3 text-lg">Start Creating</button>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 4: BLOG & RESOURCES -->
+<!-- ========================================== -->
+<main id="page-blog" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-black mb-4 text-black">Blog & Resources</h1>
+    <p class="text-xl font-bold text-gray-600">Master puzzle creation, pedagogy, and digital product sales.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="kahoot-card p-6 bg-white flex flex-col">
+      <div class="bg-[#26890C] h-40 rounded-xl border-4 border-black mb-4"></div>
+      <span class="text-sm font-black text-[#26890C] uppercase tracking-wider mb-2">Etsy Guide</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">How to Format Digital Workbooks for Etsy & KDP</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">Learn the exact margins, file sizes, and typography needed to get your digital products approved on major marketplaces.</p>
+      <button class="kahoot-btn bg-[#F8F9FA] border-2 w-full py-2">Read Article</button>
+    </div>
+
+    <div class="kahoot-card p-6 bg-white flex flex-col">
+      <div class="bg-[#FFA602] h-40 rounded-xl border-4 border-black mb-4"></div>
+      <span class="text-sm font-black text-[#FFA602] uppercase tracking-wider mb-2">Pedagogy</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">Vocabulary Progression in Children's Puzzles</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">Why random word generators fail students, and how to structure word searches for actual cognitive retention.</p>
+      <button class="kahoot-btn bg-[#F8F9FA] border-2 w-full py-2">Read Article</button>
+    </div>
+
+    <div class="kahoot-card p-6 bg-white flex flex-col">
+      <div class="bg-[#E21B3C] h-40 rounded-xl border-4 border-black mb-4"></div>
+      <span class="text-sm font-black text-[#E21B3C] uppercase tracking-wider mb-2">Game Design</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">The Math Behind the Perfect Sudoku Grid</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">An inside look at the algorithms that generate single-solution grids without overloading the browser.</p>
+      <button class="kahoot-btn bg-[#F8F9FA] border-2 w-full py-2">Read Article</button>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 5: ABOUT & PEDAGOGY -->
+<!-- ========================================== -->
+<main id="page-about" class="page-section hidden-page max-w-5xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-10 md:p-16 bg-white text-center border-4">
+    <h1 class="text-5xl font-black mb-8 text-[#E21B3C]">Rooted in Pedagogy</h1>
+    <p class="text-2xl font-bold text-gray-700 leading-relaxed mb-8">
+      PuzzleHub isn't just an arcade; it is an educational engine. Founded by an educator and former College Dean with decades of experience in research instruction, every game mechanic here is built on sound pedagogical structures.
+    </p>
+    <p class="text-2xl font-bold text-gray-700 leading-relaxed">
+      Whether you are solving a daily logic grid for cognitive maintenance, or using our Creator Studio to publish workbooks for students, every tool here is built to maximize engagement and learning progression.
+    </p>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 6: AUTHENTICATION / LOGIN -->
+<!-- ========================================== -->
+<main id="page-auth" class="page-section hidden-page max-w-md mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-8 bg-white border-4">
+    <div class="flex justify-between mb-8 border-b-4 border-gray-200 pb-4">
+      <button id="tab-login" onclick="switchAuthTab('login')" class="text-2xl font-black text-black">Sign In</button>
+      <button id="tab-register" onclick="switchAuthTab('register')" class="text-2xl font-black text-gray-400 hover:text-black">Sign Up</button>
+    </div>
+    
+    <!-- Login Form -->
+    <form id="form-login" class="space-y-6">
+      <div>
+        <label class="block font-black text-lg mb-2">Email Address</label>
+        <input type="email" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:bg-white focus:outline-none" placeholder="creator@example.com">
+      </div>
+      <div>
+        <label class="block font-black text-lg mb-2">Password</label>
+        <input type="password" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:bg-white focus:outline-none" placeholder="••••••••">
+      </div>
+      <button type="button" onclick="navigate('page-dashboard')" class="kahoot-btn w-full bg-[#1368CE] text-white text-xl py-3 mt-4">Login to Dashboard</button>
+    </form>
+
+    <!-- Register Form (Hidden by default) -->
+    <form id="form-register" class="space-y-6 hidden">
+      <div>
+        <label class="block font-black text-lg mb-2">Full Name</label>
+        <input type="text" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:bg-white focus:outline-none" placeholder="Your Name">
+      </div>
+      <div>
+        <label class="block font-black text-lg mb-2">Email Address</label>
+        <input type="email" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:bg-white focus:outline-none" placeholder="creator@example.com">
+      </div>
+      <div>
+        <label class="block font-black text-lg mb-2">Password</label>
+        <input type="password" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:bg-white focus:outline-none" placeholder="••••••••">
+      </div>
+      <button type="button" onclick="navigate('page-dashboard')" class="kahoot-btn w-full bg-[#26890C] text-white text-xl py-3 mt-4">Create Free Account</button>
+    </form>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 7: USER DASHBOARD -->
+<!-- ========================================== -->
+<main id="page-dashboard" class="page-section hidden-page max-w-5xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="flex flex-col md:flex-row gap-8">
+    
+    <!-- Profile Sidebar -->
+    <div class="w-full md:w-1/3 space-y-6">
+      <div class="kahoot-card p-6 bg-white border-4 text-center">
+        <div class="w-24 h-24 bg-gray-200 border-4 border-black rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">👋</div>
+        <h2 class="text-2xl font-black mb-1">Creator Profile</h2>
+        <p class="font-bold text-gray-500 mb-4">Free Tier</p>
+        <button class="kahoot-btn w-full bg-[#FFA602] text-black py-2 mb-3">Upgrade to Pro</button>
+        <button onclick="navigate('page-home')" class="font-bold text-red-500 hover:underline">Log Out</button>
+      </div>
+    </div>
+
+    <!-- Stats & History -->
+    <div class="w-full md:w-2/3 space-y-6">
+      <div class="kahoot-card p-8 bg-white border-4">
+        <h2 class="text-3xl font-black mb-6 border-b-4 border-gray-200 pb-2">Your Analytics</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-[#f4fce3] border-4 border-[#26890C] rounded-xl p-6 text-center">
+            <span class="text-5xl font-black text-[#26890C] block mb-2">12</span>
+            <span class="font-bold text-gray-700">Puzzles Solved</span>
+          </div>
+          <div class="bg-[#fff7e6] border-4 border-[#FFA602] rounded-xl p-6 text-center">
+            <span class="text-5xl font-black text-[#FFA602] block mb-2">0</span>
+            <span class="font-bold text-gray-700">PDFs Exported</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 8: PRIVACY POLICY -->
+<!-- ========================================== -->
+<main id="page-privacy" class="page-section hidden-page max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="bg-white p-10 rounded-2xl border-4 border-black">
+    <h1 class="text-4xl font-black mb-6 border-b-4 border-black inline-block pb-2">Privacy Policy & Terms</h1>
+    <p class="font-bold text-gray-600 mb-4 text-lg">Last Updated: July 2026</p>
+    <h3 class="text-2xl font-black mb-3 mt-8">1. Information Collection</h3>
+    <p class="text-lg font-bold text-gray-700 mb-4">We collect standard analytical data to ensure our game engines run smoothly. We do not sell your personal data. Accounts created for the Creator Studio are securely managed.</p>
+    <h3 class="text-2xl font-black mb-3 mt-8">2. Affiliate Links</h3>
+    <p class="text-lg font-bold text-gray-700 mb-4">PuzzleHub participates in affiliate marketing programs, such as the Amazon Services LLC Associates Program. Clicking recommended gear links may earn us a commission at no cost to you.</p>
+    <h3 class="text-2xl font-black mb-3 mt-8">3. Commercial Rights</h3>
+    <p class="text-lg font-bold text-gray-700 mb-4">Puzzles generated using the free tier may not be sold. Puzzles generated using the paid Creator Studio include full commercial rights for resale on platforms like Etsy and KDP.</p>
+  </div>
+</main>
+
+<!-- Comprehensive Footer -->
+<footer class="bg-black text-white pt-16 pb-8 border-t-[16px] border-[#FFA602] mt-12">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <div>
+      <div class="text-4xl font-black tracking-tighter mb-4">Puzzle<span class="text-[#E21B3C]">Hub</span></div>
+      <p class="text-gray-400 font-bold text-lg">Built for the mind. Scaled for creators.</p>
+    </div>
+    <div>
+      <h4 class="text-2xl font-black mb-4 text-[#FFA602]">Platform</h4>
+      <ul class="space-y-3 text-gray-300 font-bold text-lg">
+        <li><button onclick="navigate('page-home')" class="hover:text-white transition">Home Dashboard</button></li>
+        <li><button onclick="navigate('page-games')" class="hover:text-white transition">Games Arcade</button></li>
+        <li><button onclick="navigate('page-studio')" class="hover:text-white transition">Creator Studio</button></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-2xl font-black mb-4 text-[#26890C]">Resources</h4>
+      <ul class="space-y-3 text-gray-300 font-bold text-lg">
+        <li><button onclick="navigate('page-blog')" class="hover:text-white transition">Creator Blog</button></li>
+        <li><button onclick="navigate('page-about')" class="hover:text-white transition">Our Pedagogy</button></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-2xl font-black mb-4 text-[#1368CE]">Legal</h4>
+      <ul class="space-y-3 text-gray-300 font-bold text-lg">
+        <li><button onclick="navigate('page-privacy')" class="hover:text-white transition">Privacy & Terms</button></li>
+        <li><button onclick="navigate('page-privacy')" class="hover:text-white transition">Affiliate Disclosure</button></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript Engine -->
+<script>
+  // Handles navigation between pages in the SPA
+  function navigate(targetPageId) {
+    const pages = document.querySelectorAll('.page-section');
+    pages.forEach(page => {
+      page.classList.add('hidden-page');
+    });
+    const targetPage = document.getElementById(targetPageId);
+    if (targetPage) {
+      targetPage.classList.remove('hidden-page');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Handles switching between Login and Register tabs on the Auth page
+  function switchAuthTab(tab) {
+    const loginForm = document.getElementById('form-login');
+    const registerForm = document.getElementById('form-register');
+    const loginTab = document.getElementById('tab-login');
+    const registerTab = document.getElementById('tab-register');
+
+    if (tab === 'login') {
+      loginForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+      loginTab.classList.replace('text-gray-400', 'text-black');
+      registerTab.classList.replace('text-black', 'text-gray-400');
+    } else {
+      registerForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+      registerTab.classList.replace('text-gray-400', 'text-black');
+      loginTab.classList.replace('text-black', 'text-gray-400');
+    }
+  }
+</script>
+
+</body>
+</html>
