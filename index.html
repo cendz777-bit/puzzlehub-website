@@ -1,292 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PuzzleHub | Word & Number Arcade</title>
-    <style>
-        /* BASE STYLES */
-        :root {
-            --primary-color: #1A365D;
-            --secondary-color: #2B6CB0;
-            --accent-color: #ED8936;
-            --bg-color: #F7FAFC;
-            --text-main: #2D3748;
-            --text-light: #718096;
-            --white: #FFFFFF;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PuzzleHub | Level Up Your Logic</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  body { 
+    font-family: 'Nunito', sans-serif; 
+    background-color: #F8F9FA; 
+    color: #111;
+  }
+  .kahoot-btn {
+    border: 3px solid #000;
+    border-bottom: 8px solid #000;
+    border-radius: 16px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    font-weight: 900;
+  }
+  .kahoot-btn:active {
+    border-bottom: 3px solid #000;
+    transform: translateY(5px);
+  }
+  .kahoot-card {
+    border: 3px solid #000;
+    border-bottom: 8px solid #000;
+    border-radius: 24px;
+    background-color: #fff;
+    transition: transform 0.2s;
+  }
+  .pattern-bg {
+    background-image: radial-gradient(#000000 2px, transparent 2px);
+    background-size: 30px 30px;
+    background-color: #1368CE;
+  }
+  .hidden-page {
+    display: none;
+  }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(to right, #2B6CB0, #4299E1);
-            color: var(--white);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* ARCADE GRID STRUCTURE */
-        .arcade-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        /* GAME CARDS */
-        .card {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid #E2E8F0;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            border-color: var(--secondary-color);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            flex-grow: 1; /* Pushes button to bottom */
-            margin-bottom: 20px;
-        }
-
-        .play-btn {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .play-btn:hover {
-            background-color: var(--primary-color);
-        }
-
-    </style>
+  /* --- Lexi-Sum Game CSS --- */
+  .grid-input {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3px solid #000;
+    border-bottom: 6px solid #000;
+    border-radius: 12px;
+    transition: all 0.1s;
+  }
+  .grid-input:focus {
+    outline: none;
+    border-bottom: 3px solid #000;
+    transform: translateY(3px);
+    background-color: #fef08a; 
+  }
+  .target-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background-color: #1368CE;
+    color: white;
+    border: 3px solid #000;
+    border-radius: 12px;
+  }
+  .success-match {
+    background-color: #26890C !important; 
+  }
+</style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-    <!-- NAVIGATION -->
-    <header>
-        <div class="logo">PuzzleHub</div>
-        <nav>
-            <a href="#">Games</a>
-            <a href="#">Creator Studio</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+<!-- FTC Affiliate Disclosure -->
+<div class="bg-black text-white text-xs md:text-sm font-bold text-center py-2 px-4 tracking-wide z-50 relative">
+  Disclosure: As an Amazon Associate, we earn from qualifying purchases. This site contains affiliate links.
+</div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Welcome to the Arcade</h1>
-        <p>Challenge your mind with our comprehensive collection of premium word and number puzzles.</p>
-    </section>
+<!-- Interactive Navigation -->
+<nav class="max-w-7xl mx-auto w-full p-4 md:px-8 py-4 flex justify-between items-center bg-[#F8F9FA] sticky top-0 z-40 border-b-4 border-transparent">
+  <div onclick="navigate('page-home')" class="text-3xl md:text-5xl font-black tracking-tighter text-black cursor-pointer hover:scale-105 transition">Puzzle<span class="text-[#E21B3C]">Hub</span></div>
+  <div class="hidden lg:flex gap-6 font-extrabold text-xl text-gray-700">
+    <button onclick="navigate('page-games')" class="hover:text-[#26890C] transition">Arcade</button>
+    <button onclick="navigate('page-studio')" class="hover:text-[#FFA602] transition">Creator Studio</button>
+    <button onclick="navigate('page-blog')" class="hover:text-[#1368CE] transition">Blog</button>
+    <button onclick="navigate('page-about')" class="hover:text-[#E21B3C] transition">Pedagogy</button>
+  </div>
+  <div class="flex gap-4">
+    <button onclick="navigate('page-auth')" class="kahoot-btn bg-white text-black px-6 py-2 text-lg hidden md:block">Sign In</button>
+    <button onclick="navigate('page-auth')" class="kahoot-btn bg-[#1368CE] text-white px-6 py-2 text-lg hidden md:block">Sign Up</button>
+  </div>
+</nav>
 
-    <!-- MAIN ARCADE -->
-    <main class="arcade-container">
-        
-        <!-- WORD GAMES (11 Games) -->
-        <h2 class="category-title">Word Games</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>1. Classic Crossword</h3>
-                <p>Test your vocabulary and trivia knowledge with our daily traditional crossword grid.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>2. The Great Zoo Word Search</h3>
-                <p>An animal-themed expedition. Find the hidden wildlife vocabulary in the letter matrix.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>3. Cryptogram Decoder</h3>
-                <p>Crack the substitution cipher to reveal famous quotes and historical proverbs.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>4. Dino Expedition Anagrams</h3>
-                <p>Unscramble the letters to discover prehistoric terms and dinosaur names.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>5. Wordoku</h3>
-                <p>Sudoku logic meets vocabulary. Fill the grid with a 9-letter word instead of numbers.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>6. Spelling Bee Hex</h3>
-                <p>Create as many words as possible using the 7 letters in the honeycomb grid.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>7. Letter Drop</h3>
-                <p>Form words from dropping letters before the screen fills up. Fast-paced logic.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>8. Vocabulary Ladder</h3>
-                <p>Change one letter at a time to transform the starting word into the target word.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>9. Hidden Cipher</h3>
-                <p>Use logic clues to deduce the hidden 5-letter word in six attempts.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>10. Proverb Scramble</h3>
-                <p>Reconstruct sentences by piecing together fragmented tiles.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>11. Alpha Connect</h3>
-                <p>Draw lines connecting adjacent letters to form words of maximum length.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-        </div>
+<!-- ========================================== -->
+<!-- PAGE 1: HOME DASHBOARD -->
+<!-- ========================================== -->
+<main id="page-home" class="page-section max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow space-y-16">
+  <header class="pattern-bg text-white p-8 md:p-20 text-center relative kahoot-card border-4">
+    <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight drop-shadow-lg leading-tight">Train Your Brain.<br>Build Your Brand.</h1>
+    <p class="text-xl md:text-2xl font-bold mb-10 opacity-95 max-w-3xl mx-auto">Play a massive arcade of structurally sound math and word games for free, or unlock the Creator Studio to generate commercial PDF workbooks.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-6">
+      <button onclick="navigate('page-games')" class="kahoot-btn bg-[#E21B3C] text-white text-2xl py-4 px-10 hover:bg-[#c41530]">Play Games Free</button>
+      <button onclick="navigate('page-studio')" class="kahoot-btn bg-[#FFA602] text-black text-2xl py-4 px-10 hover:bg-[#e69500]">Enter the Studio</button>
+    </div>
+  </header>
+</main>
 
-        <!-- NUMBER & LOGIC GAMES (10 Games) -->
-        <h2 class="category-title">Number & Logic Games</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>12. Classic Sudoku</h3>
-                <p>The standard 9x9 grid. Fill the board so every row, column, and box contains digits 1-9.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>13. Kakuro Grid</h3>
-                <p>A mathematical crossword puzzle. Fill cells with digits 1-9 to match the sum clues.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>14. Math Maze</h3>
-                <p>Navigate from start to finish by solving equations correctly at each intersection.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>15. KenKen Logic</h3>
-                <p>Use arithmetic operations (+, -, *, /) to fill the grid and hit the target numbers.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>16. Binary Grid</h3>
-                <p>Fill the board with 0s and 1s, ensuring no more than two identical numbers are adjacent.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>17. Sequence Solver</h3>
-                <p>Analyze the mathematical pattern and determine the next logical number in the sequence.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>18. Nonogram (Picross)</h3>
-                <p>Use numerical clues to color in cells and reveal a hidden pixel-art picture.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>19. Number Slide (15-Puzzle)</h3>
-                <p>Slide the scrambled tiles around the 4x4 board to arrange them in numerical order.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>20. Hashi (Bridges)</h3>
-                <p>Connect islands with lines (bridges) so that the number of bridges matches the island's number.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-            <div class="card">
-                <h3>21. Single Grid Matrix</h3>
-                <p>Deduce the correct arrangement of numbers based on a series of strict logical parameters.</p>
-                <a href="#" class="play-btn">Play Now</a>
-            </div>
-        </div>
+<!-- ========================================== -->
+<!-- PAGE 2: GAMES ARCADE -->
+<!-- ========================================== -->
+<main id="page-games" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow space-y-8">
+  <div class="bg-black text-white rounded-2xl p-6 border-4 border-black flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="flex items-center gap-4">
+      <div class="text-5xl">🔥</div>
+      <div>
+        <h3 class="text-2xl font-black">5 Day Streak!</h3>
+        <p class="font-bold text-gray-400">Play one game today to keep it alive.</p>
+      </div>
+    </div>
+    <div class="flex gap-4 w-full md:w-auto">
+      <button class="kahoot-btn bg-[#1368CE] text-white px-6 py-3 w-full md:w-auto">🏆 Leaderboard</button>
+      <button class="kahoot-btn bg-[#26890C] text-white px-6 py-3 w-full md:w-auto">📤 Share Stats</button>
+    </div>
+  </div>
 
-    </main>
+  <div class="text-center mb-8 mt-12">
+    <h1 class="text-5xl font-black mb-4 text-black">The Arcade</h1>
+    <p class="text-xl font-bold text-gray-600">Select a structurally sound puzzle below to begin.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Lexi Sum Card -->
+    <div class="kahoot-card p-8 bg-[#f4fce3]">
+      <div class="bg-[#26890C] h-32 rounded-xl border-3 border-black flex items-center justify-center mb-6">
+        <span class="text-6xl text-white font-black">A B C</span>
+      </div>
+      <h3 class="text-3xl font-black mb-2">Lexi-Sum</h3>
+      <p class="font-bold text-gray-700 mb-8 text-lg">Sudoku meets Scrabble. Match the row targets using valid vocabulary.</p>
+      <button onclick="navigate('page-lexisum')" class="kahoot-btn bg-white w-full py-4 text-xl border-2">Launch Lexi-Sum</button>
+    </div>
+    <!-- Sudoku Card -->
+    <div class="kahoot-card p-8 bg-[#fff7e6]">
+      <div class="bg-[#FFA602] h-32 rounded-xl border-3 border-black flex items-center justify-center mb-6">
+        <span class="text-6xl text-black font-black">1 2 3</span>
+      </div>
+      <h3 class="text-3xl font-black mb-2">Classic Sudoku</h3>
+      <p class="font-bold text-gray-700 mb-8 text-lg">The 9x9 grid that started it all. Mathematically verified boards.</p>
+      <button class="kahoot-btn bg-white w-full py-4 text-xl border-2">Coming Soon</button>
+    </div>
+  </div>
+</main>
 
-   <!-- FOOTER SECTION -->
+<!-- ========================================== -->
+<!-- PAGE 3: ACTUAL LEXI-SUM GAME -->
+<!-- ========================================== -->
+<main id="page-lexisum" class="page-section hidden-page max-w-lg mx-auto w-full p-4 md:p-8 flex-grow">
+  <button onclick="navigate('page-games')" class="text-gray-500 font-black hover:text-black mb-6 text-lg">&larr; Back to Arcade</button>
+  <div class="kahoot-card p-6 md:p-10 w-full">
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-black mb-2 tracking-tight">Lexi-Sum</h1>
+      <p class="text-gray-600 font-bold">Fill the grid with valid words. Match the targets.</p>
+    </div>
+    
+    <div class="grid grid-cols-4 gap-3 md:gap-4 mb-6" id="game-board">
+      <input type="text" maxlength="1" class="grid-input" data-row="0" data-col="0">
+      <input type="text" maxlength="1" class="grid-input" data-row="0" data-col="1">
+      <input type="text" maxlength="1" class="grid-input" data-row="0" data-col="2">
+      <div class="target-badge" id="row-target-0">7</div>
+
+      <input type="text" maxlength="1" class="grid-input" data-row="1" data-col="0">
+      <input type="text" maxlength="1" class="grid-input" data-row="1" data-col="1">
+      <input type="text" maxlength="1" class="grid-input" data-row="1" data-col="2">
+      <div class="target-badge" id="row-target-1">3</div>
+
+      <input type="text" maxlength="1" class="grid-input" data-row="2" data-col="0">
+      <input type="text" maxlength="1" class="grid-input" data-row="2" data-col="1">
+      <input type="text" maxlength="1" class="grid-input" data-row="2" data-col="2">
+      <div class="target-badge" id="row-target-2">3</div>
+
+      <div class="target-badge" id="col-target-0">6</div>
+      <div class="target-badge" id="col-target-1">3</div>
+      <div class="target-badge" id="col-target-2">4</div>
+      <div></div> 
+    </div>
+
+    <button onclick="clearGrid()" class="w-full bg-[#E21B3C] text-white font-black text-xl py-4 rounded-xl border-3 border-black border-b-[6px] hover:translate-y-1 hover:border-b-4 transition-all">
+      Clear Grid
+    </button>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 4: CREATOR STUDIO -->
+<!-- ========================================== -->
+<main id="page-studio" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-8 md:p-12 bg-[#1368CE] text-white text-center mb-12">
+    <span class="text-7xl mb-6 block drop-shadow-md">🖨️</span>
+    <h1 class="text-5xl font-black mb-6">The Creator Studio</h1>
+    <p class="text-2xl font-bold mb-8 opacity-95 max-w-4xl mx-auto leading-relaxed">
+      Generate thousands of unique puzzles instantly. Perfect for crafting commercial children's activity workbooks. Export to high-res PDF instantly for Etsy, KDP, and RaketPH.
+    </p>
+    <button class="kahoot-btn bg-[#FFA602] text-black text-2xl py-4 px-12 border-4">Upgrade to Pro - $9.99/mo</button>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 5: BLOG, RESOURCES & GEAR -->
+<!-- ========================================== -->
+<main id="page-blog" class="page-section hidden-page max-w-7xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-black mb-4 text-black">Blog & Resources</h1>
+    <p class="text-xl font-bold text-gray-600">Master puzzle creation, pedagogy, and digital product sales.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="kahoot-card p-6 bg-white flex flex-col">
+      <div class="bg-[#26890C] h-40 rounded-xl border-4 border-black mb-4"></div>
+      <span class="text-sm font-black text-[#26890C] uppercase tracking-wider mb-2">Etsy Guide</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">How to Format Digital Workbooks for Etsy & KDP</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">Learn the exact margins, file sizes, and typography needed to get your digital products approved.</p>
+      <button class="kahoot-btn bg-[#F8F9FA] border-2 w-full py-2">Read Article</button>
+    </div>
+
+    <!-- Pre-wired Affiliate Gear Card -->
+    <div class="kahoot-card p-6 bg-[#fff7e6] flex flex-col border-[#FFA602]">
+      <div class="bg-gray-800 h-40 rounded-xl border-4 border-black mb-4 flex items-center justify-center text-4xl">📚</div>
+      <span class="text-sm font-black text-[#FFA602] uppercase tracking-wider mb-2">Recommended Gear</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">Top Logic Puzzle Books for Offline Training</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">Our curated list of the absolute best physical math and word puzzle books for screen-free brain health.</p>
+      <a href="https://www.amazon.com/dp/B08V5Q5R3G/?tag=cendz7770e-20" target="_blank" class="kahoot-btn bg-[#FFA602] text-center text-black border-2 w-full py-2 block">View on Amazon</a>
+    </div>
+
+    <div class="kahoot-card p-6 bg-white flex flex-col">
+      <div class="bg-[#E21B3C] h-40 rounded-xl border-4 border-black mb-4"></div>
+      <span class="text-sm font-black text-[#E21B3C] uppercase tracking-wider mb-2">Pedagogy</span>
+      <h3 class="text-2xl font-black mb-3 leading-tight">The Math Behind the Perfect Sudoku Grid</h3>
+      <p class="font-bold text-gray-600 mb-6 flex-grow">An inside look at the algorithms that generate single-solution grids without overloading the browser.</p>
+      <button class="kahoot-btn bg-[#F8F9FA] border-2 w-full py-2">Read Article</button>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- PAGE 6 & 7: AUTH & PEDAGOGY / MISC SHELLS -->
+<!-- ========================================== -->
+<main id="page-auth" class="page-section hidden-page max-w-md mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-8 bg-white border-4">
+    <div class="flex justify-between mb-8 border-b-4 border-gray-200 pb-4">
+      <button id="tab-login" onclick="switchAuthTab('login')" class="text-2xl font-black text-black">Sign In</button>
+      <button id="tab-register" onclick="switchAuthTab('register')" class="text-2xl font-black text-gray-400 hover:text-black">Sign Up</button>
+    </div>
+    <form id="form-login" class="space-y-6">
+      <div>
+        <label class="block font-black text-lg mb-2">Email Address</label>
+        <input type="email" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:outline-none">
+      </div>
+      <div>
+        <label class="block font-black text-lg mb-2">Password</label>
+        <input type="password" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:outline-none">
+      </div>
+      <button type="button" onclick="navigate('page-home')" class="kahoot-btn w-full bg-[#1368CE] text-white text-xl py-3 mt-4">Login</button>
+    </form>
+    <form id="form-register" class="space-y-6 hidden">
+      <div>
+        <label class="block font-black text-lg mb-2">Email Address</label>
+        <input type="email" class="w-full border-4 border-black rounded-xl p-3 font-bold bg-gray-50 focus:outline-none">
+      </div>
+      <button type="button" onclick="navigate('page-home')" class="kahoot-btn w-full bg-[#26890C] text-white text-xl py-3 mt-4">Create Account</button>
+    </form>
+  </div>
+</main>
+
+<main id="page-about" class="page-section hidden-page max-w-5xl mx-auto w-full p-4 md:p-8 flex-grow">
+  <div class="kahoot-card p-10 md:p-16 bg-white text-center border-4">
+    <h1 class="text-5xl font-black mb-8 text-[#E21B3C]">Rooted in Pedagogy</h1>
+    <p class="text-2xl font-bold text-gray-700 leading-relaxed mb-8">
+      PuzzleHub isn't just an arcade; it is an educational engine. Founded by an educator and former College Dean with decades of experience in research instruction, every game mechanic here is built on sound pedagogical structures.
+    </p>
+  </div>
+</main>
+
+<!-- Comprehensive Footer -->
+<footer class="bg-black text-white pt-16 pb-8 border-t-[16px] border-[#FFA602] mt-12">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <div>
+      <div class="text-4xl font-black tracking-tighter mb-4">Puzzle<span class="text-[#E21B3C]">Hub</span></div>
+      <p class="text-gray-400 font-bold text-lg">Built for the mind. Scaled for creators.</p>
+    </div>
+    <div>
+      <h4 class="text-2xl font-black mb-4 text-[#FFA602]">Platform</h4>
+      <ul class="space-y-3 text-gray-300 font-bold text-lg">
+        <li><button onclick="navigate('page-home')" class="hover:text-white transition">Home Dashboard</button></li>
+        <li><button onclick="navigate('page-games')" class="hover:text-white transition">Games Arcade</button></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript Router & Game Engine -->
+<script>
+  // 1. SPA Router
+  function navigate(targetPageId) {
+    const pages = document.querySelectorAll('.page-section');
+    pages.forEach(page => page.classList.add('hidden-page'));
+    
+    const targetPage = document.getElementById(targetPageId);
+    if (targetPage) targetPage.classList.remove('hidden-page');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 2. Auth Tabs
+  function switchAuthTab(tab) {
+    const loginForm = document.getElementById('form-login');
+    const registerForm = document.getElementById('form-register');
+    const loginTab = document.getElementById('tab-login');
+    const registerTab = document.getElementById('tab-register');
+
+    if (tab === 'login') {
+      loginForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+      loginTab.classList.replace('text-gray-400', 'text-black');
+      registerTab.classList.replace('text-black', 'text-gray-400');
+    } else {
+      registerForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+      registerTab.classList.replace('text-gray-400', 'text-black');
+      loginTab.classList.replace('text-black', 'text-gray-400');
+    }
+  }
+
+  // 3. Lexi-Sum Game Engine
+  const letterValues = {
+    A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, 
+    N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10
+  };
+
+  const requiredRowSums = [7, 3, 3];
+  const requiredColSums = [6, 3, 4];
+  const inputs = document.querySelectorAll('.grid-input');
+
+  inputs.forEach(input => {
+    input.addEventListener('input', checkMath);
+  });
+
+  function checkMath() {
+    let currentRowSums = [0, 0, 0];
+    let currentColSums = [0, 0, 0];
+
+    inputs.forEach(input => {
+      const letter = input.value.toUpperCase();
+      const row = parseInt(input.getAttribute('data-row'));
+      const col = parseInt(input.getAttribute('data-col'));
+
+      if (letterValues[letter]) {
+        currentRowSums[row] += letterValues[letter];
+        currentColSums[col] += letterValues[letter];
+      }
+    });
+
+    for (let i = 0; i < 3; i++) {
+      const rowBadge = document.getElementById(`row-target-${i}`);
+      if (currentRowSums[i] === requiredRowSums[i]) rowBadge.classList.add('success-match');
+      else rowBadge.classList.remove('success-match');
+
+      const colBadge = document.getElementById(`col-target-${i}`);
+      if (currentColSums[i] === requiredColSums[i]) colBadge.classList.add('success-match');
+      else colBadge.classList.remove('success-match');
+    }
+  }
+
+  function clearGrid() {
+    inputs.forEach(input => input.value = '');
+    checkMath(); 
+  }
+</script>
+
+    <!-- FOOTER SECTION -->
 <footer style="background-color: #1a1a1a; color: #f4f4f4; padding: 40px 20px; font-family: sans-serif; font-size: 14px; line-height: 1.6; text-align: center;">
     
     <div style="max-width: 800px; margin: 0 auto; padding-bottom: 20px; border-bottom: 1px solid #333;">
@@ -302,6 +397,6 @@
     </div>
     
 </footer>
-    
+
 </body>
 </html>
