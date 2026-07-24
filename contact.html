@@ -1,40 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | PuzzleHub</title>
-    <style>
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #F7FAFC; }
-        header { border-bottom: 2px solid #2B6CB0; padding-bottom: 10px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .back-link { color: #2B6CB0; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        h1 { color: #1A365D; }
-        h2 { color: #2B6CB0; margin-top: 30px; font-size: 1.3rem; }
-        .content-box { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; }
-        .contact-info { background: #F7FAFC; padding: 20px; border-left: 4px solid #2B6CB0; margin-top: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — PuzzleHub</title>
+<meta name="description" content="Get in touch with PuzzleHub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161C; --paper:#F7F6F1; --paper-line:#E7E4DA;
+    --blue:#1368CE; --red:#E21B3C; --green:#1F7A0C; --amber-fill:#FFA602;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:'Inter',sans-serif; background-color:var(--paper); color:var(--ink); margin:0;
+    background-image:linear-gradient(var(--paper-line) 1px, transparent 1px),linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+    background-size:44px 44px; background-position:-1px -1px;
+  }
+  h1,h2,.display{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:var(--blue);}
+  .coord{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.06em; opacity:.55;}
+  nav{border-bottom:3px solid var(--ink); background:var(--paper);}
+  .navrow{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:1180px; margin:0 auto;}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; text-decoration:none; color:var(--ink);}
+  .logo span{color:var(--red);}
+  .backlink{font-weight:600; text-decoration:none; color:var(--ink); border-bottom:2px solid var(--ink);}
+
+  .wrap{max-width:820px; margin:0 auto; padding:0 20px;}
+  .sheet{background:#fff; border:2.5px solid var(--ink); box-shadow:6px 6px 0 var(--ink); padding:48px 44px; margin:48px auto 40px;}
+  .sheet h1{font-size:2.6rem; font-weight:700; margin:0 0 16px;}
+  .sheet p, .sheet li{font-size:1.05rem; line-height:1.7; font-weight:500; opacity:.87; margin:0 0 14px;}
+  .sheet h2{font-size:1.25rem; font-weight:700; margin:30px 0 10px;}
+  .sheet ul{padding-left:22px; margin:0 0 14px;}
+  hr{border:none; border-top:2px solid rgba(20,22,28,.12); margin:30px 0;}
+
+  .email-block{
+    border:2.5px solid var(--ink); padding:22px 24px; margin:22px 0 30px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  .email-block a{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.15rem;
+    color:var(--ink); text-decoration:none;
+  }
+  .copy-btn{
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:.9rem;
+    border:2.5px solid var(--ink); border-radius:10px; background:var(--amber-fill); color:var(--ink);
+    padding:8px 16px; box-shadow:4px 4px 0 var(--ink); cursor:pointer;
+  }
+  .copy-btn:active{ transform:translate(4px,4px); box-shadow:0 0 0 var(--ink); }
+
+  .routes{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:10px 0 6px;}
+  .route{border-left:4px solid var(--ink); padding-left:16px;}
+  .route h3{font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:700; margin:0 0 6px;}
+  .route p{font-size:.98rem; margin:0;}
+
+  footer{border-top:6px solid var(--amber-fill); background:var(--ink); color:#fff; padding:30px 20px; text-align:center; font-weight:600;}
+  footer a{color:#fff; text-decoration:underline;}
+  @media (max-width:640px){ .sheet{padding:30px 22px;} .sheet h1{font-size:2rem;} .routes{grid-template-columns:1fr;} }
+</style>
 </head>
 <body>
 
-    <header>
-        <div style="font-size: 1.5rem; font-weight: bold; color: #1A365D;">PuzzleHub</div>
-        <a href="index.html" class="back-link">&larr; Back to Main Site</a>
-    </header>
+<nav>
+  <div class="navrow">
+    <a href="index.html" class="logo">Puzzle<span>Hub</span></a>
+    <a href="index.html" class="backlink">← Back to PuzzleHub</a>
+  </div>
+</nav>
 
-    <div class="content-box">
-        <h1>Contact Us</h1>
-        <p>We value your feedback, inquiries, and collaboration ideas. Please feel free to reach out using the official contact channels below.</p>
+<div class="wrap">
+  <div class="sheet">
+    <p class="coord">GET IN TOUCH</p>
+    <h1>Contact</h1>
+    <p>Everything on PuzzleHub — support, billing, puzzle corrections, and press — goes through one inbox. Write to us directly and a person will read it.</p>
 
-        <div class="contact-info">
-            <h2>Official Support Email</h2>
-            <p>For general inquiries, technical issues, or platform feedback, contact us directly at:</p>
-            <p><strong>support@puzzlehub.site</strong> (or your primary administrative email)</p>
-        </div>
-
-        <h2>Response Time</h2>
-        <p>We strive to review and respond to all professional inquiries within 24 to 48 business hours. Thank you for connecting with PuzzleHub.</p>
+    <div class="email-block">
+      <a href="mailto:admin@puzzlehub.site" id="contact-email">admin@puzzlehub.site</a>
+      <button class="copy-btn" onclick="copyEmail()" id="copy-btn">Copy address</button>
     </div>
+
+    <hr>
+
+    <h2>What to include</h2>
+    <p>A quick note on what you're writing about helps us route it faster:</p>
+    <div class="routes">
+      <div class="route">
+        <h3>Account or billing</h3>
+        <p>The email your account is registered under, and whether it concerns the free tier or Creator Studio.</p>
+      </div>
+      <div class="route">
+        <h3>Puzzle correction</h3>
+        <p>The puzzle name and, if you have it, a screenshot of the error — a missing word, a broken grid, an unsolvable clue.</p>
+      </div>
+      <div class="route">
+        <h3>Creator Studio / licensing</h3>
+        <p>What you're publishing and where, so we can confirm your commercial rights are set up correctly.</p>
+      </div>
+      <div class="route">
+        <h3>Press or partnerships</h3>
+        <p>A short description of the outlet or project you're writing on behalf of.</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Before you write in</h2>
+    <p>Two things are already covered elsewhere and might save you a message:</p>
+    <ul>
+      <li>Questions about what we collect and why → <a href="privacy.html">Privacy Policy</a></li>
+      <li>Questions about affiliate links on the site → <a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 PuzzleHub · <a href="privacy.html">Privacy Policy</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a> · <a href="about.html">About</a>
+</footer>
+
+<script>
+  function copyEmail(){
+    const email = document.getElementById('contact-email').textContent;
+    navigator.clipboard.writeText(email).then(()=>{
+      const btn = document.getElementById('copy-btn');
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(()=>{ btn.textContent = original; }, 1500);
+    });
+  }
+</script>
 
 </body>
 </html>
