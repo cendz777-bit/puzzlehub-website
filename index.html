@@ -313,91 +313,136 @@
   </div>
 </main>
 
-<!-- Comprehensive Footer -->
+<!-- ========================= -->
+<!-- COMPREHENSIVE FOOTER -->
+<!-- ========================= -->
 <footer class="bg-black text-white pt-16 pb-8 border-t-[16px] border-[#FFA602] mt-12">
+
   <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+    <!-- Brand -->
     <div>
-      <div class="text-4xl font-black tracking-tighter mb-4">Puzzle<span class="text-[#E21B3C]">Hub</span></div>
-      <p class="text-gray-400 font-bold text-lg">Built for the mind. Scaled for creators.</p>
+      <div class="text-4xl font-black tracking-tighter mb-4">
+        Puzzle<span class="text-[#E21B3C]">Hub</span>
+      </div>
+
+      <p class="text-gray-400 font-bold text-lg mb-6">
+        Built for the mind. Scaled for creators.
+      </p>
+
+      <p class="text-sm text-gray-500 leading-relaxed">
+        As an Amazon Associate, PuzzleHub earns from qualifying purchases.
+        Some links on this website are affiliate links, which means we may
+        earn a commission at no additional cost to you.
+      </p>
     </div>
+
+    <!-- Platform -->
     <div>
       <h4 class="text-2xl font-black mb-4 text-[#FFA602]">Platform</h4>
+
       <ul class="space-y-3 text-gray-300 font-bold text-lg">
         <li><button onclick="navigate('page-home')" class="hover:text-white transition">Home Dashboard</button></li>
         <li><button onclick="navigate('page-games')" class="hover:text-white transition">Games Arcade</button></li>
         <li><button onclick="navigate('page-studio')" class="hover:text-white transition">Creator Studio</button></li>
       </ul>
     </div>
+
+    <!-- Resources -->
     <div>
       <h4 class="text-2xl font-black mb-4 text-[#26890C]">Resources</h4>
+
       <ul class="space-y-3 text-gray-300 font-bold text-lg">
         <li><button onclick="navigate('page-blog')" class="hover:text-white transition">Creator Blog</button></li>
         <li><button onclick="navigate('page-about')" class="hover:text-white transition">Our Pedagogy</button></li>
       </ul>
     </div>
+
+    <!-- Legal -->
     <div>
       <h4 class="text-2xl font-black mb-4 text-[#1368CE]">Legal</h4>
+
       <ul class="space-y-3 text-gray-300 font-bold text-lg">
-        <li><button onclick="navigate('page-privacy')" class="hover:text-white transition">Privacy & Terms</button></li>
-        <li><button onclick="navigate('page-privacy')" class="hover:text-white transition">Affiliate Disclosure</button></li>
+        <li><a href="affiliate-disclosure.html" class="hover:text-white transition">Affiliate Disclosure</a></li>
+        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy &amp; Terms</a></li>
+        <li><a href="about.html" class="hover:text-white transition">About</a></li>
+        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
       </ul>
     </div>
+
   </div>
+
+  <!-- Bottom Footer -->
+  <div class="border-t border-gray-700 pt-6">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+
+      <p class="text-gray-500 text-sm mb-4">
+        © 2026 PuzzleHub. All rights reserved.
+      </p>
+
+      <p class="text-xs text-gray-500 leading-relaxed max-w-4xl mx-auto">
+        PuzzleHub participates in affiliate advertising programs, including the Amazon
+        Services LLC Associates Program. Clicking affiliate links may earn us a commission
+        at no additional cost to you. All opinions expressed are our own.
+      </p>
+
+    </div>
+
+  </div>
+
 </footer>
 
+<!-- ========================= -->
 <!-- JavaScript Engine -->
+<!-- ========================= -->
 <script>
-  // Handles navigation between pages in the SPA
   function navigate(targetPageId) {
     const pages = document.querySelectorAll('.page-section');
+
     pages.forEach(page => {
       page.classList.add('hidden-page');
     });
+
     const targetPage = document.getElementById(targetPageId);
+
     if (targetPage) {
       targetPage.classList.remove('hidden-page');
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
-  // Handles switching between Login and Register tabs on the Auth page
   function switchAuthTab(tab) {
+
     const loginForm = document.getElementById('form-login');
     const registerForm = document.getElementById('form-register');
+
     const loginTab = document.getElementById('tab-login');
     const registerTab = document.getElementById('tab-register');
 
     if (tab === 'login') {
+
       loginForm.classList.remove('hidden');
       registerForm.classList.add('hidden');
+
       loginTab.classList.replace('text-gray-400', 'text-black');
       registerTab.classList.replace('text-black', 'text-gray-400');
+
     } else {
+
       registerForm.classList.remove('hidden');
       loginForm.classList.add('hidden');
+
       registerTab.classList.replace('text-gray-400', 'text-black');
       loginTab.classList.replace('text-black', 'text-gray-400');
+
     }
   }
 </script>
 
- <!-- FOOTER SECTION -->
-<footer style="background-color: #1a1a1a; color: #f4f4f4; padding: 40px 20px; font-family: sans-serif; font-size: 14px; line-height: 1.6; text-align: center;">
-
-    <div style="max-width: 800px; margin: 0 auto; padding-bottom: 20px; border-bottom: 1px solid #333;">
-        <p><strong>Affiliate Disclosure:</strong> This website contains affiliate links. If you click a link and make a purchase, we may receive a commission at no extra cost to you. As an Amazon Associate, I earn from qualifying purchases.</p>
-    </div>
-
-    <div style="max-width: 800px; margin: 20px auto 0; font-size: 12px; color: #aaa;">
-        <p>&copy; 2026 PuzzleHub. All rights reserved.</p>
-
-        <p>
-            <a href="affiliate-disclosure.html" style="color: #4da6ff; text-decoration: none; margin: 0 10px;">Affiliate Disclosure</a> |
-            <a href="privacy.html" style="color: #4da6ff; text-decoration: none; margin: 0 10px;">Privacy Policy &amp; Terms</a> |
-            <a href="about.html" style="color: #4da6ff; text-decoration: none; margin: 0 10px;">About</a> |
-            <a href="contact.html" style="color: #4da6ff; text-decoration: none; margin: 0 10px;">Contact</a>
-        </p>
-    </div>
-
-</footer>
+</body>
 </html>
