@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daily Challenge | PuzzleHub</title>
+
+<style>
+
+:root{
+--blue:#2563EB;
+--green:#16A34A;
+--yellow:#FACC15;
+--red:#DC2626;
+--black:#0F172A;
+--white:#FFFFFF;
+--background:#F8FAFC;
+--border:4px;
+--radius:16px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Segoe UI,Arial,sans-serif;
+background:var(--background);
+color:var(--black);
+line-height:1.7;
+
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+
+}
+
+header{
+
+background:white;
+border-bottom:4px solid var(--black);
+
+}
+
+.nav{
+
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 20px;
+
+}
+
+.logo{
+
+font-size:2rem;
+font-weight:900;
+color:var(--red);
+
+}
+
+nav a{
+
+margin-left:22px;
+font-weight:700;
+
+}
+
+.hero{
+
+background:var(--yellow);
+border-bottom:4px solid var(--black);
+padding:70px 20px;
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:3.8rem;
+font-weight:900;
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+max-width:760px;
+margin:auto;
+font-weight:600;
+
+}
+
+.section-title{
+
+font-size:2.4rem;
+font-weight:900;
+margin-bottom:35px;
+
+}
+
+.card{
+
+background:white;
+border:4px solid var(--black);
+border-radius:16px;
+padding:35px;
+box-shadow:8px 8px 0 var(--black);
+
+}
+
+.tag{
+
+display:inline-block;
+padding:8px 14px;
+background:var(--blue);
+color:white;
+font-weight:800;
+border:3px solid var(--black);
+border-radius:8px;
+box-shadow:3px 3px 0 var(--black);
+margin-bottom:20px;
+
+}
+
+.challenge-title{
+
+font-size:3rem;
+font-weight:900;
+margin-bottom:12px;
+
+}
+
+.challenge-description{
+
+font-size:1.1rem;
+margin-bottom:30px;
+font-weight:500;
+
+}
+
+.info-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-bottom:35px;
+
+}
+
+.info-box{
+
+border:4px solid var(--black);
+padding:20px;
+border-radius:12px;
+background:var(--white);
+box-shadow:4px 4px 0 var(--black);
+
+}
+
+.info-box h3{
+
+margin-bottom:8px;
+font-size:1rem;
+text-transform:uppercase;
+font-weight:900;
+
+}
+
+.info-box p{
+
+font-size:1.2rem;
+font-weight:800;
+
+}
+
+.button{
+
+display:inline-block;
+padding:16px 30px;
+background:var(--blue);
+color:white;
+font-weight:900;
+text-transform:uppercase;
+border:4px solid var(--black);
+border-radius:12px;
+box-shadow:5px 5px 0 var(--black);
+transition:all 0.1s ease;
+
+}
+
+.button:hover{
+
+transform:translate(-2px, -2px);
+box-shadow:7px 7px 0 var(--black);
+background:#1d4ed8;
+
+}
+
+footer{
+
+margin-top:80px;
+background:var(--black);
+color:white;
+padding:35px;
+text-align:center;
+border-top:4px solid var(--black);
+font-weight:700;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+PuzzleHub
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="games.html">Games</a>
+<a href="categories.html">Categories</a>
+<a href="creator-studio.html">Creator Studio</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Daily Challenge</h1>
+
+<p>
+A featured puzzle selected for today.
+Return each day to discover a new challenge.
+</p>
+
+</section>
+
+<section class="container">
+
+<div class="card">
+
+<div class="tag">
+Today's Featured Puzzle
+</div>
+
+<h2
+class="challenge-title"
+id="title">
+Loading...
+</h2>
+
+<p
+class="challenge-description"
+id="description">
+Please wait...
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<h3>Category</h3>
+
+<p id="category">-</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>Difficulty</h3>
+
+<p id="difficulty">-</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>Estimated Time</h3>
+
+<p id="time">-</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>Reward</h3>
+
+<p id="reward">-</p>
+
+</div>
+
+</div>
+
+<a
+id="playButton"
+class="button"
+href="#">
+
+Play Today's Challenge
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+&copy; 2026 PuzzleHub. All rights reserved.
+
+</footer>
+
+<script>
+
+const gamePool = [
+
+{
+title: "Sudoku",
+description: "Complete today's featured number placement challenge.",
+category: "Number Game",
+difficulty: "Medium",
+time: "10–15 minutes",
+reward: "+50 XP",
+link: "games/sudoku.html"
+},
+
+{
+title: "Crossword",
+description: "Solve today's featured vocabulary and clue challenge.",
+category: "Word Game",
+difficulty: "Easy",
+time: "8–10 minutes",
+reward: "+40 XP",
+link: "games/crossword.html"
+},
+
+{
+title: "Word Search",
+description: "Find all hidden terms before time runs out.",
+category: "Word Game",
+difficulty: "Easy",
+time: "10 minutes",
+reward: "+30 XP",
+link: "games/word-search.html"
+},
+
+{
+title: "Kakuro",
+description: "Strengthen your arithmetic and logical sum reasoning.",
+category: "Number Game",
+difficulty: "Hard",
+time: "20 minutes",
+reward: "+75 XP",
+link: "games/kakuro.html"
+},
+
+{
+title: "Nonogram",
+description: "Uncover the hidden picture through grid deduction.",
+category: "Logic Game",
+difficulty: "Medium",
+time: "15 minutes",
+reward: "+60 XP",
+link: "games/nonogram.html"
+}
+
+];
+
+// Automatic algorithmic rotation based on the day of the year
+const now = new Date();
+const start = new Date(now.getFullYear(), 0, 0);
+const diff = now - start;
+const oneDay = 1000 * 60 * 60 * 24;
+const dayOfYear = Math.floor(diff / oneDay);
+
+// Automatically cycle through the game pool without gaps or expiration
+const challenge = gamePool[dayOfYear % gamePool.length];
+
+if(challenge){
+
+document.getElementById("title").textContent = challenge.title;
+
+document.getElementById("description").textContent = challenge.description;
+
+document.getElementById("category").textContent = challenge.category;
+
+document.getElementById("difficulty").textContent = challenge.difficulty;
+
+document.getElementById("time").textContent = challenge.time;
+
+document.getElementById("reward").textContent = challenge.reward;
+
+document.getElementById("playButton").href = challenge.link;
+
+}else{
+
+document.getElementById("title").textContent = "No Challenge Scheduled";
+
+document.getElementById("description").textContent = "Please check back tomorrow for a new featured puzzle.";
+
+document.getElementById("category").textContent = "-";
+
+document.getElementById("difficulty").textContent = "-";
+
+document.getElementById("time").textContent = "-";
+
+document.getElementById("reward").textContent = "-";
+
+document.getElementById("playButton").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
