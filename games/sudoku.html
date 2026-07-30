@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku | PuzzleHub</title>
+    <!-- Global and game-specific stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sudoku.css">
+</head>
+<body>
+
+    <!-- FTC DISCLOSURE BAR -->
+    <div style="background-color: var(--black); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; font-weight: bold;">
+        FTC Disclosure Bar
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 1.8rem; font-weight: 900; color: var(--red);">PuzzleHub</div>
+            <nav style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="../index.html">Home</a>
+                <a href="../games.html" style="color: var(--blue);">Games</a>
+                <a href="../categories.html">Categories</a>
+                <a href="../daily-challenge.html">Daily Challenge</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section style="background-color: var(--green); border-bottom: 4px solid var(--black); padding: 3rem 2rem; text-align: center; color: white;">
+        <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -2px; color: var(--white);">Sudoku</h1>
+        <p style="font-size: 1.2rem; max-width: 650px; margin: 0 auto; font-weight: 700;">
+            Improve logical thinking by completing the grid without repeating numbers in any row, column, or box.
+        </p>
+    </section>
+
+    <!-- MAIN GAME CONTAINER -->
+    <main class="container" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        
+        <!-- GAME CONTROLS & DIFFICULTY BAR -->
+        <div class="sudoku-controls-card card" style="margin-bottom: 25px; background: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 20px; box-shadow: 6px 6px 0 var(--black);">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                <div>
+                    <label style="font-weight: 900; margin-right: 10px;">Difficulty:</label>
+                    <select id="difficultySelect" style="padding: 8px 12px; font-weight: 800; border: 3px solid var(--black); border-radius: 8px; background: var(--background);">
+                        <option value="3">Easy (3×3 Grid)</option>
+                        <option value="6">Medium (6×6 Grid)</option>
+                        <option value="9" selected>Classic (9×9 Grid)</option>
+                    </select>
+                </div>
+                <div id="gameTimer" style="font-weight: 900; font-size: 1.1rem; background: var(--yellow); padding: 6px 14px; border: 3px solid var(--black); border-radius: 8px;">
+                    ⏱️ 00:00
+                </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <button id="newGameBtn" class="btn btn-primary" style="background: var(--blue);">New Puzzle</button>
+                <button id="checkBtn" class="btn btn-primary" style="background: var(--green);">Check Answers</button>
+                <button id="solveBtn" class="btn" style="background: var(--yellow); color: var(--black); border: 3px solid var(--black); font-weight: 900;">Show Solution</button>
+                <button id="resetBtn" class="btn" style="background: var(--white); color: var(--black); border: 3px solid var(--black); font-weight: 900;">Reset</button>
+                <button id="printBtn" class="btn" style="background: var(--white); color: var(--black); border: 3px solid var(--black); font-weight: 900;">🖨️ Print</button>
+                <button id="shareBtn" class="btn" style="background: var(--white); color: var(--black); border: 3px solid var(--black); font-weight: 900;">🔗 Share</button>
+            </div>
+        </div>
+
+        <!-- SUDOKU BOARD WRAPPER -->
+        <div id="boardWrapper" style="display: flex; justify-content: center; margin-bottom: 40px;">
+            <div id="sudokuGridContainer" class="sudoku-grid-9">
+                <!-- Javascript will inject cells here dynamically -->
+            </div>
+        </div>
+
+        <!-- INSTRUCTIONS ACCORDING TO BLUEPRINT -->
+        <div class="card" style="background: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 25px; box-shadow: 6px 6px 0 var(--black);">
+            <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; color: var(--black);">How to Play Sudoku</h3>
+            <ul style="padding-left: 20px; font-weight: 600; line-height: 1.8;">
+                <li><strong>Objective:</strong> Fill the grid so every row, column, and sub-grid contains all numbers from 1 up to the grid size.</li>
+                <li><strong>Rules for 9×9:</strong> Each of the nine 3×3 boxes must contain the digits 1 through 9 without repetition.</li>
+                <li><strong>Classroom & Print Use:</strong> Clicking the Print button automatically strips away navigation and footers, leaving only a clean worksheet for offline use.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="margin-top: 80px; background: var(--black); color: white; padding: 35px; text-align: center; border-top: 4px solid var(--black); font-weight: 700;">
+        &copy; 2026 PuzzleHub. All rights reserved.
+    </footer>
+
+    <!-- Game Engine Script -->
+    <script src="../js/sudoku.js"></script>
+</body>
+</html>
