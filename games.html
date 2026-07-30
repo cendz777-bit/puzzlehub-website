@@ -338,3 +338,56 @@
 
     </div> <!-- Closing #gameGrid and .grid-4 -->
 </main> <!-- Closing .container -->
+
+    <!-- FOOTER -->
+    <footer style="margin-top: 80px; background: var(--black); color: white; padding: 35px; text-align: center; border-top: 4px solid var(--black); font-weight: 700;">
+        &copy; 2026 PuzzleHub. All rights reserved. Built for educators, students, and puzzle enthusiasts.
+    </footer>
+
+    <!-- SEARCH AND FILTER JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('gameSearch');
+            const filterChips = document.querySelectorAll('.filter-chip');
+            const gameCards = document.querySelectorAll('.game-card');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            // Filter by Category Chips
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', function () {
+                    filterChips.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.getAttribute('data-filter');
+                    filterGames();
+                });
+            });
+
+            // Search by Text Input
+            searchInput.addEventListener('input', function () {
+                searchQuery = this.value.toLowerCase().trim();
+                filterGames();
+            });
+
+            // Combined Filtering Logic
+            function filterGames() {
+                gameCards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    const matchesCategory = (currentCategory === 'all' || categories.includes(currentCategory));
+                    const matchesSearch = (title.includes(searchQuery) || description.includes(searchQuery));
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
