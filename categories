@@ -1,0 +1,149 @@
+<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+
+    <h1 class="section-title" style="font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; color: var(--black);">Puzzle Categories</h1>
+    
+    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 3rem; color: var(--black); max-width: 800px; line-height: 1.6;">
+        Explore our complete collection of word, number, logic, and brain-training puzzles. Choose a category below to browse available games, test your skills, and start playing.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2.5rem;">
+
+        <!-- Word Games -->
+        <div class="card" style="background-color: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0px var(--black);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase; color: var(--blue);">Word Games</h2>
+                <span style="background: var(--blue); color: var(--white); font-weight: 900; padding: 0.25rem 0.75rem; border: 3px solid var(--black); border-radius: 8px; font-size: 0.9rem; box-shadow: 3px 3px 0px var(--black);">5 Games</span>
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;">
+                Sharpen your vocabulary, spelling, and word recognition skills with classic and original word puzzles.
+            </p>
+            <hr style="border: 2px solid var(--black); margin: 1.5rem 0;">
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Word Search</span>
+                    <a href="#" style="color: var(--blue);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Crossword</span>
+                    <a href="#" style="color: var(--blue);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Word Scramble</span>
+                    <a href="#" style="color: var(--blue);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Missing Letter</span>
+                    <a href="#" style="color: var(--blue);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800;">
+                    <span>Lexi-Sum</span>
+                    <a href="#" style="color: var(--blue);">Play &rarr;</a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="display: block; text-align: center;">View All Word Games</a>
+        </div>
+
+        <!-- Number Games -->
+        <div class="card" style="background-color: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0px var(--black);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase; color: var(--green);">Number Games</h2>
+                <span style="background: var(--green); color: var(--white); font-weight: 900; padding: 0.25rem 0.75rem; border: 3px solid var(--black); border-radius: 8px; font-size: 0.9rem; box-shadow: 3px 3px 0px var(--black);">5 Games</span>
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;">
+                Challenge your numerical reasoning and arithmetic skills with grid-based logic and number placement puzzles.
+            </p>
+            <hr style="border: 2px solid var(--black); margin: 1.5rem 0;">
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Sudoku</span>
+                    <a href="#" style="color: var(--green);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Kakuro</span>
+                    <a href="#" style="color: var(--green);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>KenKen</span>
+                    <a href="#" style="color: var(--green);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Number Search</span>
+                    <a href="#" style="color: var(--green);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800;">
+                    <span>Magic Squares</span>
+                    <a href="#" style="color: var(--green);">Play &rarr;</a>
+                </li>
+            </ul>
+            <a href="#" class="btn" style="display: block; text-align: center; background: var(--green); color: var(--white); border: 4px solid var(--black); border-radius: 12px; box-shadow: 4px 4px 0px var(--black);">View All Number Games</a>
+        </div>
+
+        <!-- Logic Games -->
+        <div class="card" style="background-color: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0px var(--black);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase; color: var(--red);">Logic Games</h2>
+                <span style="background: var(--red); color: var(--white); font-weight: 900; padding: 0.25rem 0.75rem; border: 3px solid var(--black); border-radius: 8px; font-size: 0.9rem; box-shadow: 3px 3px 0px var(--black);">5 Games</span>
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;">
+                Test your deduction, pattern recognition, and problem-solving abilities with intricate visual logic challenges.
+            </p>
+            <hr style="border: 2px solid var(--black); margin: 1.5rem 0;">
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Nonogram</span>
+                    <a href="#" style="color: var(--red);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Slitherlink</span>
+                    <a href="#" style="color: var(--red);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Hitori</span>
+                    <a href="#" style="color: var(--red);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Futoshiki</span>
+                    <a href="#" style="color: var(--red);">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800;">
+                    <span>Binary Puzzle</span>
+                    <a href="#" style="color: var(--red);">Play &rarr;</a>
+                </li>
+            </ul>
+            <a href="#" class="btn" style="display: block; text-align: center; background: var(--red); color: var(--white); border: 4px solid var(--black); border-radius: 12px; box-shadow: 4px 4px 0px var(--black);">View All Logic Games</a>
+        </div>
+
+        <!-- Brain Training -->
+        <div class="card" style="background-color: var(--white); border: 4px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0px var(--black);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase; color: #CA8A04;">Brain Training</h2>
+                <span style="background: var(--yellow); color: var(--black); font-weight: 900; padding: 0.25rem 0.75rem; border: 3px solid var(--black); border-radius: 8px; font-size: 0.9rem; box-shadow: 3px 3px 0px var(--black);">4 Games</span>
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;">
+                Enhance your memory, mental agility, concentration, and processing speed with targeted cognitive exercises.
+            </p>
+            <hr style="border: 2px solid var(--black); margin: 1.5rem 0;">
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Memory Match</span>
+                    <a href="#" style="color: #CA8A04;">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Pattern Recall</span>
+                    <a href="#" style="color: #CA8A04;">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800; border-bottom: 2px dashed #CBD5E1;">
+                    <span>Sequence Builder</span>
+                    <a href="#" style="color: #CA8A04;">Play &rarr;</a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; font-weight: 800;">
+                    <span>Speed Math</span>
+                    <a href="#" style="color: #CA8A04;">Play &rarr;</a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-accent" style="display: block; text-align: center;">View All Brain Training</a>
+        </div>
+
+    </div>
+
+</main>
