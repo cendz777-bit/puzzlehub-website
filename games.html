@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library | PuzzleHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Page-specific layout tweaks for the Games Library */
+        .library-search-container {
+            margin-bottom: 2rem;
+        }
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: 4px solid var(--black);
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: 4px 4px 0 var(--black);
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: var(--blue);
+        }
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .filter-chip {
+            background: var(--white);
+            border: 3px solid var(--black);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.1s ease;
+        }
+        .filter-chip:hover, .filter-chip.active {
+            background: var(--blue);
+            color: var(--white);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FTC DISCLOSURE BAR -->
+    <div style="background-color: var(--black); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; font-weight: bold;">
+        FTC Disclosure Bar
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 1.8rem; font-weight: 900; color: var(--red);">PuzzleHub</div>
+            <nav style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="index.html">Home</a>
+                <a href="games.html" style="color: var(--blue);">Games</a>
+                <a href="categories.html">Categories</a>
+                <a href="daily-challenge.html">Daily Challenge</a>
+                <a href="creator-studio.html">Creator Studio</a>
+                <a href="#">Resources</a>
+                <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; background: var(--white); color: var(--black);">Sign In</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section style="background-color: var(--yellow); border-bottom: 4px solid var(--black); padding: 5rem 2rem; text-align: center;">
+        <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -2px; color: var(--black);">Game Library</h1>
+        <p style="font-size: 1.3rem; max-width: 750px; margin: 0 auto; font-weight: 700; color: var(--black);">
+            Explore all available word, number, logic, and brain-training games. Use the search or filters below to find your next challenge.
+        </p>
+    </section>
+
+    <!-- GAME LIBRARY CONTAINER -->
+    <main class="container">
+        
+        <!-- SEARCH BAR -->
+        <div class="library-search-container">
+            <input type="text" id="gameSearch" class="search-input" placeholder="Search games...">
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+            <button class="filter-chip active" data-filter="all">All Games</button>
+            <button class="filter-chip" data-filter="word">Word Games</button>
+            <button class="filter-chip" data-filter="number">Number Games</button>
+            <button class="filter-chip" data-filter="logic">Logic Games</button>
+            <button class="filter-chip" data-filter="educational">Educational</button>
+            <button class="filter-chip" data-filter="brain-training">Brain Training</button>
+        </div>
+
+        <!-- GAME GRID CONTAINER -->
+        <div class="grid-4" id="gameGrid">
